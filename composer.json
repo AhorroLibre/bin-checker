@@ -1,0 +1,29 @@
+{
+    "name": "luisdc/bin-checker",
+    "description": "Bin checker class",
+    "authors": [
+        {
+            "name": "Luis Duarte",
+            "email": "isc.luis.duarte.itt@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "type" : "library",
+    "require-dev": {
+        "phpunit/phpunit": "^6.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "LuisDC\\BinChecker\\": "src/",
+            "LuisDC\\BinChecker\\Exception": "src/exceptions"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LuisDC\\Tests\\": "tests/"
+        }
+    }
+}
