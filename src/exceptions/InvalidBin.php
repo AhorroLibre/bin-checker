@@ -11,5 +11,8 @@ namespace LuisDC\BinChecker\Exception;
 
 class InvalidBin extends \Exception
 {
-
+    public function __construct()
+    {
+        parent::__construct("Please make sure that you specify BIN in the correct format which is 6 digits long");
+    }
 }

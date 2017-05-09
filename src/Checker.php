@@ -11,13 +11,47 @@ namespace LuisDC\BinChecker;
 
 class Checker
 {
+    /** @var Requestor $requestor */
     private $requestor;
 
-    function __construct()
+    /** @var Checker|null */
+    private static $instance;
+
+    /**
+     * Get a instance of this class
+     * @return Checker
+     */
+    public static function getInstance(): Checker
     {
-        $this->requestor = new Requestor("");
+        if (self::$instance) {
+            return self::$instance;
+        } else {
+            self::$instance = new Checker();
+            return self::$instance;
+        }
     }
 
+    // make clone private
+    private function __clone()
+    {
+    }
+
+    // make wakeup private
+    private function __wakeup()
+    {
+    }
+
+    // make constructor private
+    private function __construct()
+    {
+        $this->requestor = new Requestor();
+    }
+
+    /**
+     * Gets info about the given bin
+     * @param int $bin
+     * @return Bin
+     */
     public function getBinInfo(int $bin): Bin
     {
         $response = $this->requestor->get($bin);
@@ -25,7 +59,12 @@ class Checker
         return $this->transformResponse($response);
     }
 
-    private function transformResponse(array $response)
+    /**
+     * Transforms the response that the requestor obtained
+     * @param array $response
+     * @return Bin
+     */
+    private function transformResponse(array $response): Bin
     {
         $bin = (int) $response['bin'];
         $bank = $response['bank'];

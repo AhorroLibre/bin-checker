@@ -4,7 +4,7 @@
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
-         stopOnFailure="true">
+         stopOnFailure="false">
     <testsuite name="Library Test Suite">
         <directory>./tests*</directory>
     </testsuite>

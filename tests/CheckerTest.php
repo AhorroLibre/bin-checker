@@ -15,18 +15,16 @@ use PHPUnit\Framework\TestCase;
 
 class CheckerTest extends TestCase
 {
-
     /**
+     * @covers Checker::getBinInfo
      * @test
      */
     public function it_gets_bin()
     {
         $binNumber = 412309;
-        $checker = new Checker();
+        $checker = Checker::getInstance();
         $bin = $checker->getBinInfo($binNumber);
-
 
         $this->assertInstanceOf(Bin::class, $bin);
     }
-
 }

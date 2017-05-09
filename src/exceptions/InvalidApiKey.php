@@ -3,16 +3,16 @@
  * Created by PhpStorm.
  * User: user1
  * Date: 5/9/17
- * Time: 9:45 AM
+ * Time: 11:13 AM
  */
 
 namespace LuisDC\BinChecker\Exception;
 
 
-class Unhandled extends \Exception
+class InvalidApiKey extends \Exception
 {
     public function __construct()
     {
-        parent::__construct("The api produced and unhandled error");
+        parent::__construct("Invalid API Key");
     }
 }

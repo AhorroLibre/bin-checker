@@ -11,5 +11,8 @@ namespace LuisDC\BinChecker\Exception;
 
 class BinNotFound extends \Exception
 {
-
+    public function __construct()
+    {
+        parent::__construct("The BIN that you submitted is not found in the database.");
+    }
 }

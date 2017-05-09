@@ -9,7 +9,8 @@
     ],
     "require": {
         "php": "^7.1",
-        "guzzlehttp/guzzle": "^6.2"
+        "guzzlehttp/guzzle": "^6.2",
+        "vlucas/phpdotenv": "^2.4"
     },
     "type" : "library",
     "require-dev": {
@@ -18,7 +19,7 @@
     "autoload": {
         "psr-4": {
             "LuisDC\\BinChecker\\": "src/",
-            "LuisDC\\BinChecker\\Exception": "src/exceptions"
+            "LuisDC\\BinChecker\\Exception\\": "src/exceptions"
         }
     },
     "autoload-dev": {
