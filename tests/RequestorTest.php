@@ -33,6 +33,17 @@ class RequestorTest extends TestCase
         $requestor = new Requestor();
         $response = $requestor->get($bin);
         $this->assertTrue(is_array($response));
+        $this->assertArrayHasKey('bin', $response);
+        $this->assertArrayHasKey('bank', $response);
+        $this->assertArrayHasKey('card', $response);
+        $this->assertArrayHasKey('type', $response);
+        $this->assertArrayHasKey('level', $response);
+        $this->assertArrayHasKey('country', $response);
+        $this->assertArrayHasKey('countrycode', $response);
+        $this->assertArrayHasKey('website', $response);
+        $this->assertArrayHasKey('phone', $response);
+        $this->assertArrayHasKey('valid', $response);
+
     }
 
     /**

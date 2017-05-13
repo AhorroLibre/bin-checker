@@ -26,5 +26,6 @@ class CheckerTest extends TestCase
         $bin = $checker->getBinInfo($binNumber);
 
         $this->assertInstanceOf(Bin::class, $bin);
+        $this->assertEquals($binNumber, $bin->getBin());
     }
 }
