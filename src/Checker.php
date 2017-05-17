@@ -67,9 +67,24 @@ class Checker
     private function transformResponse(array $response): Bin
     {
         $bin = (int) $response['bin'];
-        $bank = $response['bank'];
-        $brand = $response['card'];
-        $type = $response['type'];
+        if (empty($response['bank'])) {
+            $bank = null;
+        } else {
+            $bank = $response['bank'];
+        }
+
+        if (empty($response['card'])) {
+            $brand = null;
+        } else {
+            $brand = $response['card'];
+        }
+
+        if (empty($response['type'])) {
+            $type = null;
+        } else {
+            $type = $response['type'];
+        }
+
         return new Bin($bin, $bank, $brand, $type);
     }
 }

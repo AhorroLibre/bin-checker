@@ -33,15 +33,17 @@ class Bin
      * @param $brand
      * @param $type
      */
-    public function __construct(int $bin, string $bank, string $brand, string $type)
+    public function __construct(int $bin, ?string $bank, ?string $brand, ?string $type)
     {
         $this->bin = $bin;
         $this->bank = $bank;
         $this->brand = $brand;
-        if ($type === "CREDIT") {
-            $this->type = self::CREDIT;
-        } else if ($type === "DEBIT") {
-            $this->type = self::DEBIT;
+        if ($type) {
+            if ($type === "CREDIT") {
+                $this->type = self::CREDIT;
+            } else if ($type === "DEBIT") {
+                $this->type = self::DEBIT;
+            }
         }
     }
 
