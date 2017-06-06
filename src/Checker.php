@@ -85,6 +85,18 @@ class Checker
             $type = $response['type'];
         }
 
-        return new Bin($bin, $bank, $brand, $type);
+        if (empty($response['level'])) {
+            $level = null;
+        } else {
+            $level = $response['level'];
+        }
+
+        if (empty($response['valid'])) {
+            $valid = null;
+        } else {
+            $valid = $response['valid'];
+        }
+
+        return new Bin($bin, $bank, $brand, $type, $level, $valid);
     }
 }

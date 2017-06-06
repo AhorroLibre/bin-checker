@@ -26,14 +26,22 @@ class Bin
     /** @var int $type */
     private $type;
 
+    /** @var string $level */
+    private $level;
+
+    /** @var bool $valid */
+    private $valid;
+
     /**
      * Bin constructor.
-     * @param $bin
-     * @param $bank
-     * @param $brand
-     * @param $type
+     * @param int $bin
+     * @param null|string $bank
+     * @param null|string $brand
+     * @param null|string $type
+     * @param null|string $level
+     * @param null|string $valid
      */
-    public function __construct(int $bin, ?string $bank, ?string $brand, ?string $type)
+    public function __construct(int $bin, ?string $bank, ?string $brand, ?string $type, ?string $level, ?string $valid)
     {
         $this->bin = $bin;
         $this->bank = $bank;
@@ -44,6 +52,10 @@ class Bin
             } else if ($type === "DEBIT") {
                 $this->type = self::DEBIT;
             }
+        }
+        $this->level = $level;
+        if ($valid !== null) {
+            $this->valid = $valid === 'true';
         }
     }
 
@@ -58,7 +70,7 @@ class Bin
     /**
      * @return string
      */
-    public function getBank(): string
+    public function getBank(): ?string
     {
         return $this->bank;
     }
@@ -66,7 +78,7 @@ class Bin
     /**
      * @return string
      */
-    public function getBrand(): string
+    public function getBrand(): ?string
     {
         return $this->brand;
     }
@@ -74,9 +86,24 @@ class Bin
     /**
      * @return int
      */
-    public function getType(): int
+    public function getType(): ?int
     {
         return $this->type;
     }
 
+    /**
+     * @return string
+     */
+    public function getLevel(): ?string
+    {
+        return $this->level;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isValid(): ?bool
+    {
+        return $this->valid;
+    }
 }
