@@ -97,6 +97,9 @@ class Checker
             $valid = $response['valid'];
         }
 
-        return new Bin($bin, $bank, $brand, $type, $level, $valid);
+        $country = $response['country'] ?? null;
+        $countryCode = $response['countrycode'] ?? null;
+
+        return new Bin($bin, $bank, $brand, $type, $level, $valid, $country, $countryCode);
     }
 }
