@@ -32,6 +32,12 @@ class Bin
     /** @var bool $valid */
     private $valid;
 
+    /** @var string|null $country */
+    private $country;
+
+    /** @var string|null $countryCode */
+    private $countryCode;
+
     /**
      * Bin constructor.
      * @param int $bin
@@ -40,8 +46,10 @@ class Bin
      * @param null|string $type
      * @param null|string $level
      * @param null|string $valid
+     * @param null|string $country
+     * @param null|string $countryCode
      */
-    public function __construct(int $bin, ?string $bank, ?string $brand, ?string $type, ?string $level, ?string $valid)
+    public function __construct(int $bin, ?string $bank, ?string $brand, ?string $type, ?string $level, ?string $valid, ?string $country, ?string $countryCode)
     {
         $this->bin = $bin;
         $this->bank = $bank;
@@ -57,6 +65,8 @@ class Bin
         if ($valid !== null) {
             $this->valid = $valid === 'true';
         }
+        $this->country = $country;
+        $this->countryCode = $countryCode;
     }
 
     /**
@@ -105,5 +115,21 @@ class Bin
     public function isValid(): ?bool
     {
         return $this->valid;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getCountryCode(): ?string
+    {
+        return $this->countryCode;
     }
 }
