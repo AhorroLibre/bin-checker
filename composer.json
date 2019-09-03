@@ -10,7 +10,7 @@
     "require": {
         "php": "^7.1",
         "guzzlehttp/guzzle": "^6.2",
-        "vlucas/phpdotenv": "^2.4"
+        "vlucas/phpdotenv": "^3.0"
     },
     "type" : "library",
     "require-dev": {
